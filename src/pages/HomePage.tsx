@@ -33,7 +33,7 @@ const HomePage: React.FC = () => {
     {/* Imagem */}
     <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-[32rem] 2xl:h-[36rem]">
       <img
-        src="assets/svg/healthcare.svg"
+        src="/Foto 1.png"
         alt="Cuidado e Saúde"
         className="object-contain h-full"
       />
