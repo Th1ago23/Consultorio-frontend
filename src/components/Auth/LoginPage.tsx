@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,22 +14,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-    <Link to="/" className="absolute top-4 left-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-8 h-8 text-indigo-600 hover:text-indigo-800"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3 9.75L12 3l9 6.75M4.5 10.5v9.75h15V10.5"
-        />
-      </svg>
-    </Link>
+
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
         <h2 className="mb-6 text-2xl font-bold text-center text-indigo-600">Login</h2>
