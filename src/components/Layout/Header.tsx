@@ -1,63 +1,56 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white shadow-md py-4">
-      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link to="/" className="text-xl font-bold text-indigo-600">
-          {/* Substitua por uma imagem do logo se tiver */}
-          TP Odontologia
-        </Link>
+<header className="p-4 transition-colors duration-300 bg-white shadow-md dark:bg-gray-900 dark:text-white">
+  <div className="container flex items-center justify-between h-16 mx-auto">
+  <a href="/" aria-label="Back to homepage" className="flex items-center -mt-2 space-x-2 transition-transform duration-300 hover:scale-105">
+  <img src="/Dra. Tatiane.png" alt="Logo Dra. Tatiane" style={{ width: '150px', height: 'auto' }} />
+</a>
 
-        {/* Navigation Links */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-6">
-            <li>
-              <Link to="/" className="text-gray-700 hover:text-indigo-500">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/servicos" className="text-gray-700 hover:text-indigo-500">
-                Serviços
-              </Link>
-            </li>
-            <li>
-              <Link to="/sobre" className="text-gray-700 hover:text-indigo-500">
-                Sobre Nós
-              </Link>
-            </li>
-            <li>
-              <Link to="/contato" className="text-gray-700 hover:text-indigo-500">
-                Contato
-              </Link>
-            </li>
-          </ul>
-        </nav>
+    {/* Navigation */}
+    <ul className="hidden space-x-6 lg:flex animate-fade-in">
+      <li>
+        <a href="#" className="text-gray-700 transition-colors duration-200 border-b-2 border-transparent dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 hover:border-violet-600 dark:hover:border-violet-400">
+          Sobre
+        </a>
+      </li>
+      <li>
+        <a href="#" className="text-gray-700 transition-colors duration-200 border-b-2 border-transparent dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 hover:border-violet-600">
+          Procedimentos
+        </a>
+      </li>
+      <li>
+        <a href="#" className="text-gray-700 transition-colors duration-200 border-b-2 border-transparent dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 hover:border-violet-600">
+          Contato
+        </a>
+      </li>
+      <li>
+        <a href="#" className="text-gray-700 transition-colors duration-200 border-b-2 border-transparent dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 hover:border-violet-600">
+          Rede sociais
+        </a>
+      </li>
+    </ul>
 
-        <div className="md:hidden">
-          <button className="text-gray-500 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
-              <path fillRule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
+    {/* Auth Buttons */}
+    <div className="items-center hidden space-x-4 lg:flex animate-fade-in">
+      <a href="/login" className="px-5 py-2 transition-all duration-300 border rounded border-violet-600 text-violet-600 hover:bg-violet-600 hover:text-white">
+        Entrar
+      </a>
+      <a href='/register' className="px-5 py-2 text-white transition-all duration-300 rounded bg-violet-600 hover:bg-violet-700">
+        Registrar
+      </a>
+    </div>
 
-        <div className="hidden md:flex items-center space-x-4">
-          <Link to="/login" className="text-gray-700 hover:text-indigo-500">
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          >
-            Cadastrar
-          </Link>
-        </div>
-      </div>
-    </header>
+    {/* Mobile Menu Button */}
+    <button className="p-2 transition-colors duration-300 rounded lg:hidden hover:bg-gray-200 dark:hover:bg-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
   );
 };
 
