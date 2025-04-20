@@ -1,4 +1,13 @@
 import React from 'react';
+import {
+  Stethoscope,
+  Microscope,
+  HeartHandshake,
+  Laugh,
+  ShieldCheck,
+  Smile
+} from "lucide-react";
+
 
 const HomePage: React.FC = () => {
   return (
@@ -32,35 +41,88 @@ const HomePage: React.FC = () => {
 
     {/* Imagem */}
     <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-[32rem] 2xl:h-[36rem]">
-      <img
-        src="/Foto 1.png"
-        alt="Cuidado e Saúde"
-        className="object-contain h-full"
-      />
+    <img
+  src="/Foto 1.png"
+  alt="Cuidado e Saúde"
+  className="object-cover h-full shadow-2xl rounded-l-[2rem] hidden lg:block"
+/>
+    </div>
+  </div>
+</section>
+<section className="py-16 bg-gray-100">
+  <div className="container px-6 mx-auto text-center">
+    <h2 className="mb-12 text-3xl font-bold text-gray-800">Nossos Serviços</h2>
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {/* Serviço 1 */}
+      <div className="p-6 text-left transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl">
+        <div className="flex items-center mb-4 text-indigo-600">
+          <Stethoscope className="w-6 h-6 mr-2" />
+          <h3 className="text-xl font-semibold">Consultas Clínicas</h3>
+        </div>
+        <p className="text-gray-600">
+          Avaliação completa e acompanhamento da sua saúde.
+        </p>
+      </div>
+
+      {/* Serviço 2 */}
+      <div className="p-6 text-left transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl">
+        <div className="flex items-center mb-4 text-indigo-600">
+          <Microscope className="w-6 h-6 mr-2" />
+          <h3 className="text-xl font-semibold">Exames e Diagnósticos</h3>
+        </div>
+        <p className="text-gray-600">
+          Realização de exames para um diagnóstico preciso.
+        </p>
+      </div>
+
+      {/* Serviço 3 */}
+      <div className="p-6 text-left transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl">
+        <div className="flex items-center mb-4 text-indigo-600">
+          <HeartHandshake className="w-6 h-6 mr-2" />
+          <h3 className="text-xl font-semibold">Aconselhamento</h3>
+        </div>
+        <p className="text-gray-600">
+          Suporte e informações para suas decisões de saúde.
+        </p>
+      </div>
+
+      {/* Serviço 4 */}
+      <div className="p-6 text-left transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl">
+        <div className="flex items-center mb-4 text-indigo-600">
+          <Laugh className="w-6 h-6 mr-2" />
+          <h3 className="text-xl font-semibold">Implantes Dentários</h3>
+        </div>
+        <p className="text-gray-600">
+          Realização de sonhos através de implantes.
+        </p>
+      </div>
+
+      {/* Serviço 5 */}
+      <div className="p-6 text-left transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl">
+        <div className="flex items-center mb-4 text-indigo-600">
+          <ShieldCheck className="w-6 h-6 mr-2" />
+          <h3 className="text-xl font-semibold">Prevenção</h3>
+        </div>
+        <p className="text-gray-600">
+          Cuidados preventivos para manter a saúde em dia.
+        </p>
+      </div>
+
+      {/* Serviço 6 */}
+      <div className="p-6 text-left transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl">
+        <div className="flex items-center mb-4 text-indigo-600">
+          <Smile className="w-6 h-6 mr-2" />
+          <h3 className="text-xl font-semibold">Saúde Estética</h3>
+        </div>
+        <p className="text-gray-600">
+          Procedimentos voltados ao bem-estar e autoestima.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto text-center">
-          <h2 className="mb-8 text-3xl font-semibold text-gray-800">Nossos Serviços</h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="p-6 bg-white rounded-lg shadow-md">
-              <h3 className="mb-2 text-xl font-semibold text-indigo-600">Consultas Clínicas</h3>
-              <p className="text-gray-700">Avaliação completa e acompanhamento da sua saúde.</p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-md">
-              <h3 className="mb-2 text-xl font-semibold text-indigo-600">Exames e Diagnósticos</h3>
-              <p className="text-gray-700">Realização de exames para um diagnóstico preciso.</p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-md">
-              <h3 className="mb-2 text-xl font-semibold text-indigo-600">Aconselhamento e Orientação</h3>
-              <p className="text-gray-700">Suporte e informações para suas decisões de saúde.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="py-16 bg-white">
         <div className="container mx-auto text-center">
