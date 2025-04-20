@@ -11,7 +11,7 @@ import {
 
 const HomePage: React.FC = () => {
   return (
-    <div className="py-12 bg-gray-50">
+    <div>
       <section className="dark:bg-gray-100 dark:text-gray-800">
   <div className="container flex flex-col-reverse justify-center px-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
     {/* Texto */}
