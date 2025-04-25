@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
       </p>
       <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
         <a
-          href="#"
+          href="/login"
           className="px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-full shadow-md hover:bg-indigo-700"
         >
           Agendar Consulta
@@ -128,27 +128,11 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto text-center">
           <h2 className="mb-8 text-3xl font-semibold text-gray-800">Sobre Nós</h2>
           <p className="mb-6 text-lg text-gray-600">
-            O consultório da Dra. [Nome da sua mãe] oferece um ambiente acolhedor e profissional, focado no bem-estar dos pacientes.
+            O consultório da Dra. Tatiane da Silva Peixoto oferece um ambiente acolhedor e profissional, focado no bem-estar dos pacientes.
             Com anos de experiência e dedicação à saúde, buscamos proporcionar um atendimento de excelência e confiança.
           </p>
 
           <p className="text-gray-500">Dra. [Nome da sua mãe], [Especialidade]</p>
-        </div>
-      </section>
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto text-center">
-          <h2 className="mb-8 text-3xl font-semibold text-gray-800">Agende sua Consulta</h2>
-          <p className="mb-6 text-lg text-gray-600">
-            Entre em contato conosco para marcar sua consulta ou obter mais informações.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a href="tel:[Número de Telefone]" className="px-6 py-3 font-semibold text-white bg-green-500 rounded-full shadow-md hover:bg-green-600">
-              Ligar
-            </a>
-            <a href="mailto:[Email do Consultório]" className="px-6 py-3 font-semibold text-white bg-blue-500 rounded-full shadow-md hover:bg-blue-600">
-              Enviar Email
-            </a>
-          </div>
         </div>
       </section>
     </div>

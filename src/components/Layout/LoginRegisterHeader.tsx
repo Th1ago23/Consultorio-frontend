@@ -18,7 +18,6 @@ const LoginRegisterHeader: React.FC = () => {
           />
         </a>
 
-        {/* Desktop Navigation */}
         <ul className="hidden space-x-6 lg:flex animate-fade-in">
           <li>
             <a
