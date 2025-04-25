@@ -8,7 +8,6 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Lógica de autenticação aqui
     console.log('Login:', { email, password });
   };
 
