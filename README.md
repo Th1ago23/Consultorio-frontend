@@ -1,6 +1,6 @@
-# 🏥 Sistema de Gestão de Consultas Médicas
+# 🏥 Sistema de Gestão de Consultas
 
-Esse é um sistema web que desenvolvi para ajudar na organização de **cadastro de pacientes** e **marcação de consultas médicas**, inspirado em uma necessidade real da minha mãe, que enfrenta esses desafios no dia a dia.
+Esse é um sistema web que desenvolvi para ajudar na organização de **cadastro de pacientes** e **marcação de consultas**, inspirado em uma necessidade real da minha mãe, que enfrenta esses desafios no dia a dia.
 
 ---
 
