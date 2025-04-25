@@ -32,6 +32,7 @@ class PatientController {
           state,
           zipCode,
           country,
+          password: req.body.password, // Ensure password is included
         },
       });
 
