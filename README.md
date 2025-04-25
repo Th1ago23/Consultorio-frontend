@@ -30,9 +30,6 @@ Esse é um sistema web que desenvolvi para ajudar na organização de **cadastro
 ![RegistroMobile](https://github.com/user-attachments/assets/7e09b9cc-6ff5-4877-bd1d-7014010a26c1)
 
 
-### 📅 Agendamento de Consultas
-![Agendamento](./prints/agendamento.png)
-
 ---
 
 ## ✅ Funcionalidades
