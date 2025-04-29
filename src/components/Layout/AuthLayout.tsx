@@ -1,6 +1,6 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import LoginRegisterHeader from './LoginRegisterHeader';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import LoginRegisterHeader from "./LoginRegisterHeader";
 
 const AuthLayout: React.FC = () => {
   return (

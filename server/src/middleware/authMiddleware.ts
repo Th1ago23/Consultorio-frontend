@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction, RequestHandler } from 'express';
-import jwt, { JwtPayload } from 'jsonwebtoken';
-import { PrismaClient } from '@prisma/client';
+import { Request, Response, NextFunction, RequestHandler } from "express";
+import jwt, { JwtPayload } from "jsonwebtoken";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -14,25 +14,43 @@ export const authenticateToken: RequestHandler = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
 
   if (token == null) {
-    res.status(401).json({ error: 'Não autorizado' });
+    res.status(401).json({ error: "Não autorizado" });
     return;
   }
 
   try {
-    const user = jwt.verify(token, process.env.JWT_SECRET as string) as JwtPayload;
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET as string
+    ) as JwtPayload;
 
-    (req as AuthRequest).userId = user.userId;
-    (req as AuthRequest).isAdmin = user.isAdmin;
+    if (decoded.userId) {
+      (req as AuthRequest).userId = decoded.userId;
+      (req as AuthRequest).isAdmin = decoded.isAdmin;
+      (req as AuthRequest).userType = 'admin';
+    } else if (decoded.patientId) {
+      (req as AuthRequest).patientId = decoded.patientId; // Mantém patientId separado
+      (req as AuthRequest).isAdmin = false;
+      (req as AuthRequest).userType = 'patient';
+    }
 
     next();
   } catch (err) {
-    res.status(403).json({ error: 'Token inválido' });
+    res.status(403).json({ error: "Token inválido" });
   }
 };
+
+// Defina a interface AuthRequest para incluir patientId e userType
+export interface AuthRequest extends Request {
+  userId?: number;
+  patientId?: number;
+  isAdmin?: boolean;
+  userType?: 'admin' | 'patient';
+}
 
 export const authenticateAdmin: RequestHandler = async (
   req: AuthRequest,
@@ -42,6 +60,6 @@ export const authenticateAdmin: RequestHandler = async (
   if (req.isAdmin) {
     return next();
   } else {
-    res.status(403).json({ error: 'Acesso proibido' });
+    res.status(403).json({ error: "Acesso proibido" });
   }
 };

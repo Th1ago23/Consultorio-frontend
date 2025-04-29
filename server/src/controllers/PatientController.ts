@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
-import { AuthRequest } from '../middleware/authMiddleware';
+import { Request, Response } from "express";
+import { PrismaClient } from "@prisma/client";
+import { AuthRequest } from "../middleware/authMiddleware";
 
 const prisma = new PrismaClient();
 
@@ -18,6 +18,9 @@ class PatientController {
         state,
         zipCode,
         country,
+        password, // Ensure password is included
+        number,
+        complement,
       } = req.body;
 
       const patient = await prisma.patient.create({
@@ -32,14 +35,16 @@ class PatientController {
           state,
           zipCode,
           country,
-          password: req.body.password, // Ensure password is included
+          password: password,
+          number: number,
+          complement: complement,
         },
       });
 
       res.status(201).json(patient);
     } catch (error) {
-      console.error('Erro ao cadastrar paciente:', error);
-      res.status(500).json({ error: 'Erro ao cadastrar paciente' });
+      console.error("Erro ao cadastrar paciente:", error);
+      res.status(500).json({ error: "Erro ao cadastrar paciente" });
     }
   }
 
@@ -48,23 +53,25 @@ class PatientController {
       const patients = await prisma.patient.findMany();
       res.status(200).json(patients);
     } catch (error) {
-      console.error('Erro ao listar pacientes:', error);
-      res.status(500).json({ error: 'Erro ao listar pacientes' });
+      console.error("Erro ao listar pacientes:", error);
+      res.status(500).json({ error: "Erro ao listar pacientes" });
     }
   }
 
   async getById(req: AuthRequest, res: Response): Promise<void> {
     const { id } = req.params;
     try {
-      const patient = await prisma.patient.findUnique({ where: { id: parseInt(id) } });
+      const patient = await prisma.patient.findUnique({
+        where: { id: parseInt(id) },
+      });
       if (!patient) {
-        res.status(404).json({ error: 'Paciente não encontrado' });
+        res.status(404).json({ error: "Paciente não encontrado" });
         return;
       }
       res.status(200).json(patient);
     } catch (error) {
-      console.error('Erro ao buscar paciente:', error);
-      res.status(500).json({ error: 'Erro ao buscar paciente' });
+      console.error("Erro ao buscar paciente:", error);
+      res.status(500).json({ error: "Erro ao buscar paciente" });
     }
   }
 
@@ -82,6 +89,8 @@ class PatientController {
         state,
         zipCode,
         country,
+        number,
+        complement,
       } = req.body;
 
       const updatedPatient = await prisma.patient.update({
@@ -97,14 +106,16 @@ class PatientController {
           state,
           zipCode,
           country,
+          number: number,
+          complement: complement,
           updatedAt: new Date(),
         },
       });
 
       res.status(200).json(updatedPatient);
     } catch (error) {
-      console.error('Erro ao atualizar paciente:', error);
-      res.status(500).json({ error: 'Erro ao atualizar paciente' });
+      console.error("Erro ao atualizar paciente:", error);
+      res.status(500).json({ error: "Erro ao atualizar paciente" });
     }
   }
 
@@ -116,8 +127,8 @@ class PatientController {
       });
       res.status(204).send(); // 204 No Content para indicar sucesso na deleção
     } catch (error) {
-      console.error('Erro ao deletar paciente:', error);
-      res.status(500).json({ error: 'Erro ao deletar paciente' });
+      console.error("Erro ao deletar paciente:", error);
+      res.status(500).json({ error: "Erro ao deletar paciente" });
     }
   }
 }

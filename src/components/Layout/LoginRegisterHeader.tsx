@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const LoginRegisterHeader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ const LoginRegisterHeader: React.FC = () => {
           <img
             src="/Dra. Tatiane.png"
             alt="Logo Dra. Tatiane"
-            style={{ width: '150px', height: 'auto' }}
+            style={{ width: "150px", height: "auto" }}
           />
         </a>
 
@@ -65,7 +65,12 @@ const LoginRegisterHeader: React.FC = () => {
             stroke="currentColor"
             className="w-6 h-6"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
       </div>
@@ -75,22 +80,34 @@ const LoginRegisterHeader: React.FC = () => {
         <div className="mt-2 lg:hidden animate-fade-in">
           <ul className="flex flex-col p-4 space-y-2 bg-white rounded-md shadow-md dark:bg-gray-900">
             <li>
-              <a href="#" className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
                 Sobre
               </a>
             </li>
             <li>
-              <a href="#" className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
                 Procedimentos
               </a>
             </li>
             <li>
-              <a href="#" className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
                 Contato
               </a>
             </li>
             <li>
-              <a href="#" className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-700 rounded dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
                 Rede sociais
               </a>
             </li>
