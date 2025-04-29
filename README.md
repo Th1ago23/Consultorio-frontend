@@ -1,54 +1,60 @@
-# React + TypeScript + Vite
+# 🏥 Sistema de Gestão de Consultas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esse é um sistema web que desenvolvi para ajudar na organização de **cadastro de pacientes** e **marcação de consultas**, inspirado em uma necessidade real da minha mãe, que enfrenta esses desafios no dia a dia.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Prints das Telas
 
-## Expanding the ESLint configuration
+### 🏠 HomePage
+![HomePage](https://github.com/user-attachments/assets/86828b36-cb93-4ce0-88e7-1e22fccad03c)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🔐 Tela de Login
+![Login](https://github.com/user-attachments/assets/6cc64ae5-e552-4df9-ad78-8164298e554c)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 👥 Cadastro de Pacientes
+![Registro](https://github.com/user-attachments/assets/56cc1c2c-dc62-40aa-b6a9-6a6a0f413302)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📸 Prints das Telas Mobile
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🏠 HomePage
+![HomePageMobile](https://github.com/user-attachments/assets/909a3cfa-ba6d-485a-86c5-24e7cfb18c10)
+![HamburguerMenu](https://github.com/user-attachments/assets/74434c92-6ddd-4bf6-a151-986e3779adad)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+
+### 🔐 Tela de Login
+![LoginMobile](https://github.com/user-attachments/assets/06c9db5a-2ccd-482d-a8e9-cff948a97e38)
+
+### 👥 Cadastro de Pacientes
+![RegistroMobile](https://github.com/user-attachments/assets/7e09b9cc-6ff5-4877-bd1d-7014010a26c1)
+
+
+---
+
+## ✅ Funcionalidades
+
+- Autenticação de usuários com JWT
+- Cadastro e listagem de pacientes
+- Marcação, visualização e edição de consultas **EM PRODUÇÃO**
+- Interface responsiva e intuitiva
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+**Back-end:**
+- Node.Js
+- Express
+- Prisma
+- JWT (BCrypt e JsonWebTokenProvider)
+
+**Front-end:**
+- React
+- Axios
+- TailwindCSS
+  
+**Banco de Dados:**
+- PostgreSQL
+
+---
