@@ -17,6 +17,19 @@ export default {
         vinhoMaisEscuro: '#3B0F0F',
         vinhoTransparente: 'rgba(111, 29, 27, 0.5)',
         vinhoTransparenteClaro: 'rgba(139, 58, 58, 0.5)',
+        'fiord': {
+          '50': '#f5f7fa',
+          '100': '#ebeef3',
+          '200': '#d1dbe6',
+          '300': '#a9bbd0',
+          '400': '#7b98b5',
+          '500': '#5b7b9c',
+          '600': '#415a77',
+          '700': '#3a506a',
+          '800': '#334559',
+          '900': '#2e3b4c',
+          '950': '#1f2632',
+        },
       },
       keyframes: {
         fadeIn: {
