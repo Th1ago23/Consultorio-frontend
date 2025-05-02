@@ -2,10 +2,9 @@ import React, { useState } from "react";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <header className="p-4 transition-colors duration-300 bg-white shadow-md dark:bg-gray-900 dark:text-white">
+    <header className="p-4 transition-colors duration-300 bg-white shadow-md dark:bg-[#540B0E] dark:text-white">
       <div className="container flex items-center justify-between h-16 mx-auto">
         <a
           href="/"
@@ -28,13 +27,13 @@ const Header: React.FC = () => {
         <div className="items-center hidden space-x-4 lg:flex animate-fade-in">
           <a
             href="/login"
-            className="px-5 py-2 text-cyan-700 border border-cyan-700 rounded hover:bg-cyan-700 hover:text-white"
+            className="px-5 py-2 text-white border border-white rounded hover:bg-[#9E2A2B] hover:text-white"
           >
             Entrar
           </a>
           <a
             href="/register"
-            className="px-5 py-2 text-white bg-cyan-700 rounded hover:bg-cyan-500"
+            className="px-5 py-2 text-white bg-[#800000] rounded hover:bg-[#9E2A2B]"
           >
             Registrar
           </a>
@@ -69,7 +68,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 href="/login"
-                className="block px-4 py-2 text-violet-600 hover:bg-violet-100"
+                className="block px-4 py-2 text-white hover:bg-violet-100"
               >
                 Entrar
               </a>
@@ -77,7 +76,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 href="/register"
-                className="block px-4 py-2 text-white rounded bg-violet-600 hover:bg-violet-700"
+                className="block px-4 py-2 text-white rounded bg-[#800000]"
               >
                 Registrar
               </a>
