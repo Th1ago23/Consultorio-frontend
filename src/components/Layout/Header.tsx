@@ -41,7 +41,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="p-2 rounded lg:hidden hover:bg-gray-200 dark:hover:bg-gray-700"
+          className="p-2 rounded lg:hidden hover:bg-gray-200 dark:hover:bg-[#540B0E]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
