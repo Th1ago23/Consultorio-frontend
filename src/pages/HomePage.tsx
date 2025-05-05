@@ -130,14 +130,14 @@ const HomePage: React.FC = () => {
             Sobre Nós
           </h2>
           <p className="mb-6 text-lg text-gray-600">
-            O consultório da Dra. Tatiane da Silva Peixoto oferece um ambiente
+            O nosso consultório oferece um ambiente
             acolhedor e profissional, focado no bem-estar dos pacientes. Com
             anos de experiência e dedicação à saúde, buscamos proporcionar um
             atendimento de excelência e confiança.
           </p>
 
           <p className="text-gray-500">
-            Dra. Tatiane Peixoto, Cirurgiâ Dentista
+            Dra. Tatiane Peixoto, Cirurgiã Dentista
           </p>
         </div>
       </section>

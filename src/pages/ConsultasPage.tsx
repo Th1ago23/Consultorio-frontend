@@ -43,12 +43,11 @@ const ConsultasPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      {/* Seu JSX para listar as consultas */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Minhas Consultas</h1> {/* Título mais específico */}
+        <h1 className="text-3xl font-bold">Minhas Consultas</h1>
         <Link
           to="/appointments"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded"
+          className="bg-[#800000] hover:bg-[#9E2A2B] text-white font-semibold px-4 py-2 rounded"
         >
           Criar Consulta
         </Link>
