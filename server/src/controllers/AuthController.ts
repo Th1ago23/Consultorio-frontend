@@ -18,7 +18,7 @@ class AuthController {
         return;
       }
       const hashedPassword = await bcrypt.hash(password, saltRounds);
-      const newUser = await prisma.user.create({ data: { email, password: hashedPassword } });
+      const newUser = await prisma.user.create({ data: { email, password: hashedPassword, isAdmin:true } });
       res.status(201).json({ message: "Usuário registrado com sucesso", userId: newUser.id, email: newUser.email });
     } catch (error) {
       console.error("Erro ao registrar usuário:", error);
@@ -59,6 +59,13 @@ class AuthController {
         (error as any).statusCode = 400;
         return next(error);
       }
+      
+      const existingPatientByPhone = await prisma.patient.findUnique({ where: { phone } });
+      if (existingPatientByPhone) {
+        const error = new Error("Paciente com este número de telefone já cadastrado");
+        (error as any).statusCode = 400;
+        return next(error);
+      }
 
       const hashedPassword = await bcrypt.hash(password, saltRounds);
       const patient = await prisma.patient.create({
@@ -89,10 +96,10 @@ class AuthController {
   }
 
   async me(req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { userId, patientId, userType } = req as any;
-  
+    const { userId, patientId, isAdmin } = req as any; // Corrigi aqui para usar isAdmin no caso de ser um usuário admin
+    
     try {
-      if (userType === 'admin' && userId) {
+      if (isAdmin && userId) {
         const user = await prisma.user.findUnique({
           where: { id: userId },
           select: { id: true, email: true, isAdmin: true },
@@ -104,7 +111,7 @@ class AuthController {
           res.status(404).json({ error: "Usuário não encontrado" });
           return; // Indica que a função terminou aqui
         }
-      } else if (userType === 'patient' && patientId) {
+      } else if (!isAdmin && patientId) {
         const patient = await prisma.patient.findUnique({
           where: { id: patientId },
           select: { id: true, name: true, email: true, phone: true, cpf: true, birthDate: true, address: true, number: true, complement: true, city: true, state: true, zipCode: true, country: true, createdAt: true },
@@ -120,7 +127,6 @@ class AuthController {
   
       res.status(400).json({ error: "Tipo de usuário inválido no token" });
       return; // Indica que a função terminou aqui
-  
     } catch (error) {
       console.error("Erro ao buscar dados do usuário/paciente:", error);
       return next(error); // Passa o erro para o middleware de tratamento de erros

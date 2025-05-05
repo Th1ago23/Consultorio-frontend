@@ -7,29 +7,30 @@ const prisma = new PrismaClient();
 class AppointmentRequestController {
   async create(req: AuthRequest, res: Response): Promise<void> {
     try {
-      console.log('Valor de "this" dentro de create:', this);
       const { date, time, notes } = req.body;
       const patientId = req.patientId;
-
+  
       if (!patientId || !date || !time) {
         res.status(400).json({ error: "Paciente, data e hora são obrigatórios." });
         return;
       }
-
+  
       const patient = await prisma.patient.findUnique({ where: { id: patientId } });
       if (!patient) {
         res.status(404).json({ error: "Paciente não encontrado." });
+        return;
       }
-
+  
       const dateObj = new Date(date);
-
+  
       const isDateAvailable = await this.checkDateAvailability(dateObj);
       const isTimeAvailable = await this.checkTimeAvailability(dateObj, time);
-
+  
       if (!isDateAvailable || !isTimeAvailable) {
         res.status(400).json({ error: "Data ou hora indisponível." });
+        return;
       }
-
+  
       const appointmentRequest = await prisma.appointmentRequest.create({
         data: {
           patientId: patientId,
@@ -39,9 +40,9 @@ class AppointmentRequestController {
           status: AppointmentStatus.PENDING,
         },
       });
-
+  
       console.log("Consulta criada:", appointmentRequest);
-
+  
       res.status(201).json(appointmentRequest);
     } catch (error: unknown) {
       console.error("Erro ao solicitar consulta:", error);
@@ -53,23 +54,24 @@ class AppointmentRequestController {
     try {
       const patientId = req.patientId;
       console.log("Listando consultas para o paciente ID (backend):", patientId);
-  
+
       if (!patientId) {
         res.status(401).json({ error: "Paciente não autenticado." });
         return;
       }
-  
+      console.log("Paciente ID usado na consulta Prisma:", patientId);
+
       const consultas = await prisma.appointmentRequest.findMany({
         where: {
-          patientId: patientId,
+          patientId: patientId, // Certifique-se de que esta linha está correta
         },
         include: {
           patient: true,
         },
         orderBy: { date: 'asc' },
       });
-  
-      console.log("Consultas encontradas (backend):", consultas); // Adicione este log
+
+      console.log("Consultas encontradas (backend):", consultas);
       console.log("Número de consultas encontradas (backend):", consultas.length);
       res.status(200).json(consultas);
     } catch (error) {

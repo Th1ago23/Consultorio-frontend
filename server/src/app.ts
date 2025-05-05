@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
-import routes from './routes'; // Importando o arquivo index.ts de rotas
+import routes from './routes';
+import adminRoutes from './routes/adminRoutes'; // Importando o arquivo index.ts de rotas
 import dotenv from 'dotenv';
 import cors from 'cors'; // Importe o middleware CORS
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', routes); 
+app.use('/api/admin', adminRoutes);
 
 // Middleware de tratamento de erros (deve ser definido POR ÚLTIMO)
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
